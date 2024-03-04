@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "79a334a5-91e3-4813-b5a5-fc1b99eeafbf",
+		"name": "PatientAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9049007"
+	},
+	"item": [
+		{
+			"name": "Create Patient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": {\r\n    \"use\": \"official\",\r\n    \"family\": \"Иванов\",\r\n    \"given\": [\r\n      \"Иван\", \"Иванович\"\r\n    ]\r\n  },\r\n  \"gender\": \"male\",\r\n  \"birthDate\": \"2000-01-04T13:25\",\r\n  \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/Patient",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"Patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Patient By Date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/Patient",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "eq2013-01-14",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Patient",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": {\r\n        \"id\": \"9fe46a7f-5ac2-488d-5b6b-08dc3c4ed561\",\r\n        \"use\": \"official\",\r\n        \"family\": \"Иванов\",\r\n        \"given\": [\r\n            \"Иван\"\r\n        ]\r\n    },\r\n    \"gender\": \"Male\",\r\n    \"birthDate\": \"1997-01-04T13:25:00\",\r\n    \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/Patient/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"Patient",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Patient",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/Patient/9fe46a7f-5ac2-488d-5b6b-08dc3c4ed561",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"Patient",
+						"9fe46a7f-5ac2-488d-5b6b-08dc3c4ed561"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Patient By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/Patient/631a8c48-fc1e-4506-86ee-08dc3c4c6824",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"Patient",
+						"631a8c48-fc1e-4506-86ee-08dc3c4c6824"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:80",
+			"type": "string"
+		}
+	]
+}
